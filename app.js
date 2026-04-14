@@ -22,3 +22,11 @@ function agotados(){
 function nombrePrecio(){
     return productos.filter(p => p.nombre - p.precio );
 }
+function totalInventario(){
+    let total = productos.reduce ((acc, p) => acc + (p.precio * p.stock), 0);
+    console.log("total Inventario: ", total);
+}
+function totalVentas(){
+    let total = productos.reduce ((acc, p) => acc + p.ventas, 0);
+    console.log("Total Ventas: ", total )
+}
