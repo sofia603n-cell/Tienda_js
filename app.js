@@ -1,4 +1,5 @@
 
+
 const productos = [ { id: 1, nombre: "Mouse", categoria: "Periferico", precio: 50000,
 stock: 10, ventas: 12 }, { id: 2, nombre: "Teclado", categoria: "Periferico", precio:
 120000, stock: 5, ventas: 7 }, { id: 3, nombre: "Monitor", categoria: "Pantalla", precio:
@@ -177,5 +178,34 @@ function valorTotalStock() {
 function productoMasVendido() {
     return productos
         .sort((a, b) => b.ventas - a.ventas)[0];
+}
+
+
+function generarReporte() {
+
+    let masCaro = productos.reduce((max, p) => p.precio > max.precio ? p : max);
+
+    let masBarato = productos.reduce((min, p) => p.precio < min.precio ? p : min);
+
+  
+    let masVendido = productoMasVendido();
+
+    
+    let totalInventario = valorTotalStock();
+
+    
+    let totalVentas = productos.reduce((total, p) => total + p.ventas, 0);
+
+  
+    let agotados = productos.filter(p => p.stock === 0).length;
+
+    return {
+        productoMasCaro: masCaro.nombre,
+        productoMasBarato: masBarato.nombre,
+        productoMasVendido: masVendido.nombre,
+        valorTotalInventario: totalInventario,
+        totalUnidadesVendidas: totalVentas,
+        productosAgotados: agotados
+    };
 }
 
