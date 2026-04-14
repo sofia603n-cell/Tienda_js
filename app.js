@@ -30,3 +30,12 @@ function totalVentas(){
     let total = productos.reduce ((acc, p) => acc + p.ventas, 0);
     console.log("Total Ventas: ", total )
 }
+
+function ordenarP(){
+    return productos.sort((a, b) => a.precio - b.precio);   
+}
+
+
+function buscarP(nombre){
+    return productos.find(p => p.nombre.toLowerCase() === nombre.toLowerCase());
+}
