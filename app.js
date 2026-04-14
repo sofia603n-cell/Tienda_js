@@ -14,3 +14,11 @@ function stockBajo(){
     let resultado = productos.filter(p => p.stock <5);
     console.log(resultado)
 }
+
+function agotados(){
+    return productos.filter(p => p.stock===0);
+}
+
+function nombrePrecio(){
+    return productos.filter(p => p.nombre - p.precio );
+}
