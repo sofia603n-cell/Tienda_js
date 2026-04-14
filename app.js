@@ -39,3 +39,26 @@ function ordenarP(){
 function buscarP(nombre){
     return productos.find(p => p.nombre.toLowerCase() === nombre.toLowerCase());
 }
+function VerificarStock(){
+    let HayAgotados = productos.some(p => p.stock === 0);
+    let TodosConStock = productos.every(p => p.stock >0);
+    console.log ("¿Hay Agotados?:", HayAgotados)
+    console.log ("¿Todos tienen stock?: ", TodosConStock )
+} 
+
+function clasificarProducto(){
+    let Rango;
+    switch (true){
+        case (precio <50000):
+            Rango = "Economico";
+        break;
+        case (precio >= 50000 && precio <= 200000):
+            Rango = "medio";
+        break;
+        default:
+            Rango = "Alto";
+    }
+    console.log("Rango: ", Rangoango);
+
+
+    }
